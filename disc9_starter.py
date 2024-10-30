@@ -47,15 +47,15 @@ class TestAllMethods(unittest.TestCase):
         self.assertEqual(get_emblem(self.soup), '//upload.wikimedia.org/wikipedia/commons/thumb/9/93/Seal_of_the_University_of_Michigan.svg/150px-Seal_of_the_University_of_Michigan.svg.png')
 
     def test_get_school_founded_year(self):
-        self.assertEqual(get_founded_year(self.soup)['Pharmacy'], 1876)
+        self.assertEqual(get_founded_year(self.soup)['College of Pharmacy'], 1876)
 
     def test_sorted_dictionary_first_three_items(self):
         sorted_founding_year = sorted(get_founded_year(self.soup).items(), key=lambda item: item[1], reverse= True)
         last_three_items = sorted_founding_year[:3]
         expected_result = [
-            ('Kinesiology', 1984),
-            ('Art & Design', 1974),
-            ('Information', 1969)
+            ('School of Kinesiology', 1984),
+            ('Penny W. Stamps School of Art & Design', 1974),
+            ('School of Information', 1969)
         ]
         self.assertEqual(last_three_items, expected_result)
     
